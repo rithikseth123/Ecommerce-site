@@ -2,7 +2,7 @@
 
 # E-Commerce Site Project
 
-![Project Logo/Icon](android-chrome-192x192.png)
+![Project Logo/Icon](static/android-chrome-192x192.png)
 
 This project is an e-commerce website where users can browse through a variety of products, add items to their cart, and make purchases securely.
 
