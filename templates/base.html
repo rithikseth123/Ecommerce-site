@@ -21,13 +21,29 @@
                 <a href="{% url "all-product" %}" class="menu-item">All Products</a>
                 <a href="{% url "recent-product" %}" class="menu-item">Recent Products</a>
                 <a href="{% url "category" %}" class="menu-item">Category</a>
-                <a href="{% url "login" %}" class="menu-item">Login</a>
+                {% if user.is_authenticated %}
+                    <a href="{% url "logout" %}" class="menu-item">Logout</a>
+                {% else %}
+                    <a href="{% url "login" %}" class="menu-item">Login</a>
+                    <a href="{% url "register" %}" class="menu-item">Register</a>
+                {% endif %}
                 {% comment %} <a href="{% url "add-product" %}" class="menu-item">Add product</a> {% endcomment %}
             </nav>
         </header>
         {% block content %}
         {% endblock content %}
         <footer class="main-footer">
+            <nav style="text-align: left;">
+                <p style="font-weight: bold;">Need Help?</p>
+                <br>
+                <p>Email us - help.otisgreen@gmail.com</p>
+                <br>
+                <p>Whatsapp- +91 9711435130</p>
+                <br>
+                <a href="www.instagram.com">
+                    <img src="{% static "onscreen/Logo-Instagram-noir-1.png" %}" alt="instagram-link" width="20px">
+                </a>
+            </nav>
             Official Site <a href="{% url "main-page" %} " class="footer-link"style="color:white;">&copy;OtisGreen</a>
         </footer>
     </body>

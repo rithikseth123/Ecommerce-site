@@ -1,60 +1,64 @@
-                                             /* product_detail.css */
-                                         
-                                         .container {
-                                             max-width: 800px;
-                                             margin: 0 auto;
-                                             padding: 20px;
-                                             font-family: 'Arial', sans-serif;
-                                             /* Change the font to a creative one */
-                                             background-color: #f9f9f9;
-                                             /* Light gray background */
-                                             border-radius: 8px;
-                                             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                                             height: auto;
-                                         }
-                                         
-                                         .product-container {
-                                             text-align: center;
-                                         }
-                                         
-                                         .product-details {
-                                             text-align: left;
-                                         }
-                                         
-                                         .product-image {
-                                             border: 2px solid#6B8E23;
-                                             /* Border color: Blue */
-                                             border-radius: 8px;
-                                             margin-bottom: 20px;
-                                             transform: rotate(-10deg);
-                                             width: auto;
-                                             max-width: 250px;
-                                             height: auto;
-                                             transition: transform 0.3s;
-                                         }
-                                         
-                                         .product-image:hover {
-                                             transform: scale(1.5);
-                                             /* Zoom in by 10% on hover */
-                                         }
-                                         
-                                         .product-name {
-                                             font-size: 32px;
-                                             font-weight: bold;
-                                             color: #333;
-                                             /* Dark gray */
-                                         }
-                                         
-                                         .product-category,
-                                         .product-price,
-                                         .product-date {
-                                             font-size: 18px;
-                                             color: #555;
-                                             /* Slightly darker gray */
-                                         }
-                                         
-                                         .product-description {
-                                             font-size: 16px;
-                                             color: #666;
-                                             /* Even darker gray */
-                                             line-height: 1.6;
+                                                 /* product_detail.css */
+                                                 
+                                                 .container {
+                                                     max-width: 800px;
+                                                     margin: 0 auto;
+                                                     padding: 20px;
+                                                     font-family: 'Arial', sans-serif;
+                                                     /* Change the font to a creative one */
+                                                     background-color: #f9f9f9;
+                                                     /* Light gray background */
+                                                     border-radius: 8px;
+                                                     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                                                     height: auto;
+                                                 }
+                                                 
+                                                 .product-container {
+                                                     text-align: center;
+                                                 }
+                                                 
+                                                 .product-details {
+                                                     text-align: left;
+                                                 }
+                                                 
+                                                 .product-image {
+                                                     border: 2px solid#6B8E23;
+                                                     /* Border color: Blue */
+                                                     border-radius: 8px;
+                                                     margin-bottom: 20px;
+                                                     transform: rotate(-10deg);
+                                                     width: auto;
+                                                     max-width: 250px;
+                                                     height: auto;
+                                                     transition: transform 0.3s;
+                                                 }
+                                                 
+                                                 .product-image:hover {
+                                                     transform: scale(1.5);
+                                                     /* Zoom in by 10% on hover */
+                                                 }
+                                                 
+                                                 .product-name {
+                                                     font-size: 32px;
+                                                     font-weight: bold;
+                                                     color: #333;
+                                                     /* Dark gray */
+                                                 }
+                                                 
+                                                 .product-category,
+                                                 .product-date {
+                                                     font-size: 18px;
+                                                     color: #555;
+                                                     /* Slightly darker gray */
+                                                 }
+                                                 
+                                                 .product-description {
+                                                     font-size: 16px;
+                                                     color: #666;
+                                                     /* Even darker gray */
+                                                     line-height: 1.6;
+                                                 }
+                                                 
+                                                 .product-price {
+                                                     color: #e74c3c;
+                                                 }
