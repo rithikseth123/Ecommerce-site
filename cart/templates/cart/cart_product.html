@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Cart Items
+{% endblock title %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "cart/cart.css" %}">
+    <style>
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            text-align: center;
+        }
+        .product-card {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 80%;
+        }
+        .product-image {
+            max-width: 100px;
+            margin-right: 10px;
+        }
+        .product-info {
+            flex-grow: 1;
+        }
+    </style>
+{% endblock css_files %}
+{% block content %}
+    <div class="product-container">
+        <ul class="product-list">
+            {% if cart_items %}
+                {% for cart_item in cart_items %}
+                    <li class="product-card">
+                        <img src="{{ cart_item.product.image.url }}"
+                             alt="Product Image"
+                             class="product-image">
+                        <div class="product-info">
+                            <span class="product-name">{{ cart_item.product.name |linebreaks }}</span>
+                            <br>
+                            <span class="product-date">Cost: ₹{{ cart_item.product.cost }}/-</span>
+                            <br>
+                            <span class="product-quantity">Total Item Booked:{{ cart_item.quantity }}</span>
+                            <br>
+                            <span class="total-cost">Total Cost: {{ cart_item.quantity }}x{{ cart_item.product.cost }} = ₹{{ cart_item.total }}/-</span>
+                            <br>
+                            <form action="{% url "add-to-cart" %}"
+                                  method="post"
+                                  style="display: inline">
+                                {% csrf_token %}
+                                <input type="hidden" name="product_id" value="{{ cart_item.product.pk }}" />
+                                <button class="add-product-button"
+                                        style="background-color: green;
+                                               color: #FFFFFF;
+                                               font-weight: bold">+</button>
+                            </form>
+                            <form action="{% url "remove-from-cart" %}"
+                                  method="post"
+                                  style="display: inline">
+                                {% csrf_token %}
+                                <input type="hidden" name="product_id" value="{{ cart_item.product.id }}">
+                                <button type="submit"
+                                        style="background-color: red;
+                                               color: #FFFFFF;
+                                               font-weight: bold">-</button>
+                            </form>
+                        </div>
+                    </li>
+                {% endfor %}
+                <div class="product-card">
+                    <form action="{% url "order" %}"
+                          method="post"
+                          style="display: flex;
+                                 justify-content: space-between;
+                                 align-items: center">
+                        {% csrf_token %}
+                        <span style="font-weight: bold;">Your Total: {{ total }}</span>
+                        <input type="hidden" name="total_price" value="{{ total }}">
+                        <button class="order-button" type="submit">Order</button>
+                    </form>
+                </div>
+            {% else %}
+                <h1>No Product In the Cart</h1>
+            {% endif %}
+        </ul>
+    </div>
+{% endblock content %}

@@ -1,0 +1,39 @@
+.bill-container {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #000;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)rotate(-10deg);
+    opacity: 0.2;
+    font-size: 50px;
+    font-weight: bold;
+    color: #000;
+    pointer-events: none;
+    rotate: 10%;
+}
+
+.date {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+
+/* Optional styles for better presentation */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+}
+
+a {
+    display: block;
+    margin-top: 20px;
+}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+{% endblock title %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "order/order.css" %}">
+{% endblock css_files %}
+{% block content %}
+    {% for order in order_list %}
+        <div class="bill-container">
+            <ul>
+                <li>Order Date:{{ order.created_at }}</li>
+                <li>Order id:{{ order.id }}</li>
+                {% for order_item in order.orderitems_set.all %}
+                    <li>
+                        Product: {{ order_item.product.name }}
+                        <br>
+                        Quantity: {{ order_item.quantity }}
+                        <br>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+{% endblock content %}

@@ -15,7 +15,7 @@ def register(request):
         form=NewUserForm(request.POST)
         if form.is_valid():
             user=form.save(commit=False)
-            user.is_active=False
+            user.is_active=True
             user.save()
             return redirect("/")
         else:

@@ -26,11 +26,23 @@
                 About Product:
                 <p class="product-description">Sizes|M,L,Xl,Xxl</p>
                 <p class="product-description">{{ product.description | linebreaks }}</p>
-                <a href="{% url "buy-form" %}">
+                {% if user.is_authenticated %}
+                <form action="{% url 'add-to-cart' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="product_id" value="{{ product.pk }}" />
                     <button class="add-product-button"
-                            style="background-color: #FF5733;
-                                   color: #FFFFFF;
-                                   font-weight: bold">Buy Now</button>
+                    style="background-color: blue;
+                    color: #FFFFFF;
+                    font-weight: bold">Buy Now</button>
+                {% else %}
+                <form action="{% url 'login' %}" method="post">
+                    {% csrf_token %}
+                    <button class="add-product-button"
+                    style="background-color: blue;
+                    color: #FFFFFF;
+                    font-weight: bold">Buy Now</button>
+
+                    {% endif %}
                 </a>
             </div>
         </div>

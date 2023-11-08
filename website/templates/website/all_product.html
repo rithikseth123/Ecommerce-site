@@ -16,10 +16,10 @@
 {% block content %}
     <div class="product-container">
         {% for product in products %}
-            <a href="{% url "single-product" product.slug %}"
-               class="product-link"
-               id="product-{{ product.pk }}">
-                <div class="product-card">
+            <div class="product-card">
+                <a href="{% url "single-product" product.slug %}"
+                   class="product-link"
+                   id="product-{{ product.pk }}">
                     <img src="{{ product.image.url }}"
                          alt="Product Image"
                          class="product-image">
@@ -28,8 +28,8 @@
                         <br>
                         <span class="product-date">₹{{ product.cost }}/-</span>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
         {% endfor %}
     </div>
 {% endblock content %}

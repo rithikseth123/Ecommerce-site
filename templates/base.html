@@ -18,16 +18,22 @@
                 <a href="{% url "main-page" %}" class="logo">OtisGreen&trade;</a>
             </h1>
             <nav class="main-menu">
+                <a href="{% url 'cart-item' %}" class="menu-item">Cart [{{ user_cart_items }}]</a>
                 <a href="{% url "all-product" %}" class="menu-item">All Products</a>
                 <a href="{% url "recent-product" %}" class="menu-item">Recent Products</a>
                 <a href="{% url "category" %}" class="menu-item">Category</a>
                 {% if user.is_authenticated %}
+                    <a href="{% url "order-list" %}" class="menu-item">Order</a>
                     <a href="{% url "logout" %}" class="menu-item">Logout</a>
                 {% else %}
                     <a href="{% url "login" %}" class="menu-item">Login</a>
                     <a href="{% url "register" %}" class="menu-item">Register</a>
                 {% endif %}
-                {% comment %} <a href="{% url "add-product" %}" class="menu-item">Add product</a> {% endcomment %}
+                {% if user.is_authenticated %}
+                    {% if user.is_superuser or user.is_staff %}
+                        <a href="{% url "add-product" %}" class="menu-item">Add product</a>
+                    {% endif %}
+                {% endif %}
             </nav>
         </header>
         {% block content %}
