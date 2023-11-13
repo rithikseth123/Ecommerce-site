@@ -37,7 +37,7 @@ def login(request):
                 print("No Valid")
     form=AuthenticationForm()
     return render(request,"account/login.html",{"form":form})
-
+ok
 def logout(request):
     auth_logout(request)
     return redirect("/")
